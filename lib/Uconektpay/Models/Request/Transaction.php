@@ -3,17 +3,16 @@
 /**
  * Transaction request model
  *
- * @copyright   Payrexx AG
- * @author      Payrexx Development Team <info@payrexx.com>
+ * @copyright   Uconekt AG
  */
-namespace Payrexx\Models\Request;
+namespace Uconektpay\Models\Request;
 
 /**
  * Transaction class
  *
- * @package Payrexx\Models\Request
+ * @package Uconektpay\Models\Request
  */
-class Transaction extends \Payrexx\Models\Base
+class Transaction extends \Uconektpay\Models\Base
 {
     /** @var int $amount */
     protected $amount;
@@ -125,6 +124,6 @@ class Transaction extends \Payrexx\Models\Base
      */
     public function getResponseModel()
     {
-        return new \Payrexx\Models\Response\Transaction();
+        return new \Uconektpay\Models\Response\Transaction();
     }
 }

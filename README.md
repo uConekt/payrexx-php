@@ -1,10 +1,10 @@
-payrexx-php
+uconekt-php
 ===========
 
 VERSIONING
 ----------
 
-This client API library uses the API version 1.0.0 of Payrexx. If you got troubles, make sure you are using the correct library version!
+This client API library uses the API version 1.0.0 of Uconektpay. If you got troubles, make sure you are using the correct library version!
 
 Requirements
 ------------
@@ -12,7 +12,7 @@ We recommend to use PHP version >= 5.4
 
 The following php modules are required: cURL
 
-Getting started with PAYREXX
+Getting started with Uconektpay
 ----------------------------
 If you don't already use Composer, then you probably should read the installation guide http://getcomposer.org/download/.
 
@@ -23,7 +23,7 @@ For the latest library version you can use the following content of composer.jso
 ```json
 {
     "require": {
-        "payrexx/payrexx": "dev-master"
+        "uconektpay/uconektpay": "dev-master"
     }
 }
 ```
@@ -34,38 +34,38 @@ For the Version 1.0.0 you can use the following content of composer.json:
 ```json
 {
     "require": {
-        "payrexx/payrexx": "1.0.0"
+        "uconektpay/uconektpay": "1.0.0"
     }
 }
 ```
 
 
-1.  Instantiate the payrexx class with the following parameters:
-    $instance: Your Payrexx instance name. (e.g. instance name 'demo' you request your Payrexx instance https://demo.payrexx.com
+1.  Instantiate the uconektpay class with the following parameters:
+    $instance: Your Uconektpay instance name. (e.g. instance name 'demo' you request your Uconektpay instance https://demo.uconekt-pay.com
     $apiSecret: This is your API secret which you can find in your instance's administration.
 
     ```php
-    $payrexx = new \Payrexx\Payrexx($instance, $apiSecret);
+    $uconektpay = new \Uconektpay\Uconektpay($instance, $apiSecret);
     ```
 2.  Instantiate the model class with the parameters described in the API-reference:
 
     ```php
-    $subscription = new \Payrexx\Models\Request\Subscription();
+    $subscription = new \Uconektpay\Models\Request\Subscription();
     $subscription->setId(1);
     ```
 3.  Use your desired function:
 
     ```php
-    $response  = $payrexx->cancel($subscription);
+    $response  = $uconektpay->cancel($subscription);
     $subscriptionId = $response->getId();
     ```
 
     It recommend to wrap it into a "try/catch" to handle exceptions like this:
     ```php
     try{
-        $response  = $payrexx->cancel($subscription);
+        $response  = $uconektpay->cancel($subscription);
         $subscriptionId = $response->getId();
-    }catch(\Payrexx\PayrexxException $e){
+    }catch(\Uconektpay\UconektpayException $e){
         //Do something with the error informations below
         $e->getCode();
         $e->getMessage();
@@ -76,4 +76,4 @@ For the Version 1.0.0 you can use the following content of composer.json:
 Documentation
 --------------
 
-For further information, please refer to the official REST API reference: https://developers.payrexx.com/v1.0/reference
+For further information, please refer to the official REST API reference: https://developers.uconekt-pay.com/v1.0/reference

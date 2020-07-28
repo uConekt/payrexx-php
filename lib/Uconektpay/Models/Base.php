@@ -1,15 +1,14 @@
 <?php
 /**
  * The Base model class for request and response models.
- * @author    Ueli Kramer <ueli.kramer@comvation.com>
- * @copyright 2014 Payrexx AG
+ * @copyright 2020 Uconekt AG
  * @since     v1.0
  */
-namespace Payrexx\Models;
+namespace Uconektpay\Models;
 
 /**
  * Class Base
- * @package Payrexx\Models
+ * @package Uconektpay\Models
  */
 abstract class Base
 {
@@ -50,7 +49,7 @@ abstract class Base
     /**
      * Returns the corresponding response model object
      *
-     * @return \Payrexx\Models\Response\Base
+     * @return \Uconektpay\Models\Response\Base
      */
     public abstract function getResponseModel();
 

@@ -1,17 +1,16 @@
 <?php
 /**
  * The Page response model
- * @author    Ueli Kramer <ueli.kramer@comvation.com>
- * @copyright 2014 Payrexx AG
+ * @copyright 2020 Uconekt AG
  * @since     v1.0
  */
-namespace Payrexx\Models\Response;
+namespace Uconektpay\Models\Response;
 
 /**
  * Class Page
- * @package Payrexx\Models\Response
+ * @package Uconektpay\Models\Response
  */
-class Page extends \Payrexx\Models\Request\Page
+class Page extends \Uconektpay\Models\Request\Page
 {
     protected $createdAt = 0;
 

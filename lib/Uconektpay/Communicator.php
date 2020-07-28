@@ -1,22 +1,21 @@
 <?php
 /**
  * This class has the definition of the API used for the communication.
- * @author    Ueli Kramer <ueli.kramer@comvation.com>
- * @copyright 2014 Payrexx AG
+ * @copyright 2020 Uconekt AG
  * @since     v1.0
  */
-namespace Payrexx;
+namespace Uconektpay;
 
 /**
  * This object handles the communication with the API server
- * @package Payrexx
+ * @package Uconektpay
  */
 class Communicator
 {
     const VERSION = 'v1';
     const API_URL_FORMAT = 'https://api.%s/%s/%s/%d/%s';
-    const API_URL_BASE_DOMAIN = 'payrexx.com';
-    const DEFAULT_COMMUNICATION_HANDLER = '\Payrexx\CommunicationAdapter\CurlCommunication';
+    const API_URL_BASE_DOMAIN = 'uconekt-pay.com';
+    const DEFAULT_COMMUNICATION_HANDLER = '\Uconektpay\CommunicationAdapter\CurlCommunication';
 
     /**
      * @var array A set of methods which can be used to communicate with the API server.
@@ -33,7 +32,7 @@ class Communicator
         'getOne'  => 'GET',
     );
     /**
-     * @var string The Payrexx instance name.
+     * @var string The Uconektpay instance name.
      */
     protected $instance;
     /**
@@ -57,7 +56,7 @@ class Communicator
      * @param string $communicationHandler The preferred communication handler. Default is cURL.
      * @param string $apiBaseDomain        The base domain of the API URL.
      *
-     * @throws PayrexxException
+     * @throws UconektpayException
      */
     public function __construct($instance, $apiSecret, $communicationHandler, $apiBaseDomain)
     {
@@ -66,7 +65,7 @@ class Communicator
         $this->apiBaseDomain = $apiBaseDomain;
 
         if (!class_exists($communicationHandler)) {
-            throw new PayrexxException('Communication handler class ' . $communicationHandler . ' not found');
+            throw new UconektpayException('Communication handler class ' . $communicationHandler . ' not found');
         }
         $this->communicationHandler = new $communicationHandler();
     }
@@ -85,13 +84,13 @@ class Communicator
      * Perform a simple API request by method name and Request model.
      *
      * @param string                       $method The name of the API method to call
-     * @param \Payrexx\Models\Base $model  The model which has the same functionality like a filter.
+     * @param \Uconektpay\Models\Base $model  The model which has the same functionality like a filter.
      *
-     * @return \Payrexx\Models\Base[]|\Payrexx\Models\Base An array of models or just one model which
+     * @return \Uconektpay\Models\Base[]|\Uconektpay\Models\Base An array of models or just one model which
      *                                                                       is the result of the API call
-     * @throws \Payrexx\PayrexxException An error occurred during the Payrexx Request
+     * @throws \Uconektpay\UconektpayException An error occurred during the Uconektpay Request
      */
-    public function performApiRequest($method, \Payrexx\Models\Base $model)
+    public function performApiRequest($method, \Uconektpay\Models\Base $model)
     {
         $params = $model->toArray($method);
         $paramsWithoutFiles = $params;
@@ -116,9 +115,9 @@ class Communicator
         $convertedResponse = array();
         if (!isset($response['body']['data']) || !is_array($response['body']['data'])) {
             if (!isset($response['body']['message'])) {
-                throw new \Payrexx\PayrexxException('Payrexx PHP: Configuration is wrong! Check instance name and API secret', $response['info']['http_code']);
+                throw new \Uconektpay\UconektpayException('Uconektpay PHP: Configuration is wrong! Check instance name and API secret', $response['info']['http_code']);
             }
-            throw new \Payrexx\PayrexxException($response['body']['message'], $response['info']['http_code']);
+            throw new \Uconektpay\UconektpayException($response['body']['message'], $response['info']['http_code']);
         }
 
         foreach ($response['body']['data'] as $object) {
@@ -137,12 +136,12 @@ class Communicator
      * @param string $method The API method to check for
      *
      * @return string The HTTP method to use for the queried API method
-     * @throws \Payrexx\PayrexxException The method is not implemented yet.
+     * @throws \Uconektpay\UconektpayException The method is not implemented yet.
      */
     protected function getHttpMethod($method)
     {
         if (!$this->methodAvailable($method)) {
-            throw new \Payrexx\PayrexxException('Method ' . $method . ' not implemented');
+            throw new \Uconektpay\UconektpayException('Method ' . $method . ' not implemented');
         }
         return self::$methods[$method];
     }

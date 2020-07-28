@@ -8,28 +8,28 @@ spl_autoload_register(function($class) {
     }
 });
 
-// $instanceName is a part of the url where you access your payrexx installation.
-// https://{$instanceName}.payrexx.com
+// $instanceName is a part of the url where you access your uconektpay installation.
+// https://{$instanceName}.uconekt-pay.com
 $instanceName = 'YOUR_INSTANCE_NAME';
 
-// $secret is the payrexx secret for the communication between the applications
-// if you think someone got your secret, just regenerate it in the payrexx administration
+// $secret is the uconektpay secret for the communication between the applications
+// if you think someone got your secret, just regenerate it in the uconektpay administration
 $secret = 'YOUR_SECRET';
 
-$payrexx = new \Payrexx\Payrexx($instanceName, $secret);
+$uconektpay = new \Uconektpay\Uconektpay($instanceName, $secret);
 
 // init empty request object
-$invoice = new \Payrexx\Models\Request\Invoice();
+$invoice = new \Uconektpay\Models\Request\Invoice();
 
 // info for payment link (reference id)
 $invoice->setReferenceId('Order number of my online shop application');
 
 // info for payment page (title, description)
 $invoice->setTitle('Online shop payment');
-$invoice->setDescription('Thanks for using Payrexx to pay your order');
+$invoice->setDescription('Thanks for using Uconektpay to pay your order');
 
 // administrative information, which provider to use (psp)
-// psp #1 = Payrexx' test mode, see http://developers.payrexx.com/docs/miscellaneous
+// psp #1 = Uconektpay' test mode, see http://developers.uconekt-pay.com/docs/miscellaneous
 $invoice->setPsp(1);
 
 // internal data only displayed to administrator
@@ -50,7 +50,7 @@ $sku = 'P01122000';
 $invoice->setSku($sku);
 
 // ISO code of currency, list of alternatives can be found here
-// http://developers.payrexx.com/docs/miscellaneous
+// http://developers.uconekt-pay.com/docs/miscellaneous
 $invoice->setCurrency('CHF');
 
 // whether charge payment manually at a later date (type authorization)
@@ -80,8 +80,8 @@ $invoice->addField($type = 'custom_field_1', $mandatory = true, $defaultValue = 
 
 // fire request with created and filled link request-object.
 try {
-    $response = $payrexx->create($invoice);
+    $response = $uconektpay->create($invoice);
     var_dump($response);
-} catch (\Payrexx\PayrexxException $e) {
+} catch (\Uconektpay\UconektpayException $e) {
     print $e->getMessage();
 }

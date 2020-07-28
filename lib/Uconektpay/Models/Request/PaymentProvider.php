@@ -3,18 +3,17 @@
 /**
  * The PaymentProvider request model.
  *
- * @author    Payrexx Development <dev@payrexx.com>
- * @copyright 2018 Payrexx AG
+ * @copyright 2020 Uconekt AG
  * @since     v1.0
  */
 
-namespace Payrexx\Models\Request;
+namespace Uconektpay\Models\Request;
 
 /**
  * Class PaymentProvider
- * @package Payrexx\Models\Request
+ * @package Uconektpay\Models\Request
  */
-class PaymentProvider extends \Payrexx\Models\Base
+class PaymentProvider extends \Uconektpay\Models\Base
 {
     /** @var string $name */
     protected $name;
@@ -78,6 +77,6 @@ class PaymentProvider extends \Payrexx\Models\Base
      */
     public function getResponseModel()
     {
-        return new \Payrexx\Models\Response\PaymentProvider();
+        return new \Uconektpay\Models\Response\PaymentProvider();
     }
 }

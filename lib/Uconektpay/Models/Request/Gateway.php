@@ -1,15 +1,14 @@
 <?php
 
-namespace Payrexx\Models\Request;
+namespace Uconekt\Models\Request;
 
 /**
  * Gateway request class
  *
- * @copyright   Payrexx AG
- * @author      Payrexx Development Team <info@payrexx.com>
- * @package     \Payrexx\Models\Request
+ * @copyright   Uconekt AG
+ * @package     \Uconekt\Models\Request
  */
-class Gateway extends \Payrexx\Models\Base
+class Gateway extends \Uconekt\Models\Base
 {
 
     /**
@@ -324,7 +323,7 @@ class Gateway extends \Payrexx\Models\Base
     /**
      * Set payment service providers to use.
      * A list of available payment service providers
-     * can be found here: http://developers.payrexx.com/docs/miscellaneous
+     * can be found here: http://developers.uconekt-pay.com/docs/miscellaneous
      * All available psp will be used on payment page if none have been defined.
      *
      * @access  public
@@ -595,7 +594,7 @@ class Gateway extends \Payrexx\Models\Base
      */
     public function getResponseModel()
     {
-        return new \Payrexx\Models\Response\Gateway();
+        return new \Uconektpay\Models\Response\Gateway();
     }
 
     /**

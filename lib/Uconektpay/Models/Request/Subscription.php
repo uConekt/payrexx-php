@@ -1,17 +1,16 @@
 <?php
 /**
  * The subscription request model
- * @author    Ueli Kramer <ueli.kramer@comvation.com>
- * @copyright 2014 Payrexx AG
+ * @copyright 2020 Uconekt AG
  * @since     v1.0
  */
-namespace Payrexx\Models\Request;
+namespace Uconektpay\Models\Request;
 
 /**
  * Class Subscription
- * @package Payrexx\Models\Request
+ * @package Uconektpay\Models\Request
  */
-class Subscription extends \Payrexx\Models\Base
+class Subscription extends \Uconektpay\Models\Base
 {
     const CURRENCY_CHF = 'CHF';
     const CURRENCY_EUR = 'EUR';
@@ -182,6 +181,6 @@ class Subscription extends \Payrexx\Models\Base
      */
     public function getResponseModel()
     {
-        return new \Payrexx\Models\Response\Subscription();
+        return new \Uconektpay\Models\Response\Subscription();
     }
 }

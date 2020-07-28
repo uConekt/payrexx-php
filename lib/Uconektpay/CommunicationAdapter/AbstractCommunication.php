@@ -1,15 +1,14 @@
 <?php
 /**
  * This class is a template for all communication handler classes.
- * @author    Ueli Kramer <ueli.kramer@comvation.com>
- * @copyright 2014 Payrexx AG
+ * @copyright 2020 Uconekt AG
  * @since     v1.0
  */
-namespace Payrexx\CommunicationAdapter;
+namespace Uconektpay\CommunicationAdapter;
 
 /**
  * Class AbstractCommunication
- * @package Payrexx\CommunicationAdapter
+ * @package Uconektpay\CommunicationAdapter
  */
 abstract class AbstractCommunication
 {

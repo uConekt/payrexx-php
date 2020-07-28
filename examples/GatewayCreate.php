@@ -8,17 +8,17 @@ spl_autoload_register(function($class) {
     }
 });
 
-// $instanceName is a part of the url where you access your payrexx installation.
-// https://{$instanceName}.payrexx.com
+// $instanceName is a part of the url where you access your uconektpay installation.
+// https://{$instanceName}.uconekt-pay.com
 $instanceName = 'YOUR_INSTANCE_NAME';
 
-// $secret is the payrexx secret for the communication between the applications
-// if you think someone got your secret, just regenerate it in the payrexx administration
+// $secret is the uconektpay secret for the communication between the applications
+// if you think someone got your secret, just regenerate it in the uconektpay administration
 $secret = 'YOUR_SECRET';
 
-$payrexx = new \Payrexx\Payrexx($instanceName, $secret);
+$uconektpay = new \Uconektpay\Uconektpay($instanceName, $secret);
 
-$gateway = new \Payrexx\Models\Request\Gateway();
+$gateway = new \Uconektpay\Models\Request\Gateway();
 
 // amount multiplied by 100
 $gateway->setAmount(89.25 * 100);
@@ -37,7 +37,7 @@ $gateway->setSuccessRedirectUrl('https://www.merchant-website.com/success');
 $gateway->setFailedRedirectUrl('https://www.merchant-website.com/failed');
 $gateway->setCancelRedirectUrl('https://www.merchant-website.com/cancel');
 
-// optional: payment service provider(s) to use (see http://developers.payrexx.com/docs/miscellaneous)
+// optional: payment service provider(s) to use (see http://developers.uconekt-pay.com/docs/miscellaneous)
 // empty array = all available psps
 $gateway->setPsp([]);
 //$gateway->setPsp(array(4));
@@ -71,7 +71,7 @@ $gateway->addField($type = 'postcode', $value = '1234');
 $gateway->addField($type = 'place', $value = 'Musterort');
 $gateway->addField($type = 'country', $value = 'AT');
 $gateway->addField($type = 'phone', $value = '+43123456789');
-$gateway->addField($type = 'email', $value = 'max.muster@payrexx.com');
+$gateway->addField($type = 'email', $value = 'max.muster@uconekt-pay.com');
 $gateway->addField($type = 'date_of_birth', $value = '03.06.1985');
 $gateway->addField($type = 'terms', '');
 $gateway->addField($type = 'privacy_policy', '');
@@ -83,8 +83,8 @@ $gateway->addField($type = 'custom_field_1', $value = '123456789', $name = array
 ));
 
 try {
-    $response = $payrexx->create($gateway);
+    $response = $uconektpay->create($gateway);
     var_dump($response);
-} catch (\Payrexx\PayrexxException $e) {
+} catch (\Uconektpay\UconektpayException $e) {
     print $e->getMessage();
 }

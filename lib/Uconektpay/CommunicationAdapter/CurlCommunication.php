@@ -2,12 +2,11 @@
 
 /**
  * This is the cURL communication adapter
- * @author    Ueli Kramer <ueli.kramer@comvation.com>
- * @copyright 2014 Payrexx AG
+ * @copyright Uconekt AG
  * @since     v1.0
  */
 
-namespace Payrexx\CommunicationAdapter;
+namespace Uconektpay\CommunicationAdapter;
 
 use CURLFile;
 use Exception;
@@ -26,7 +25,7 @@ if (!extension_loaded('curl')) {
 
 /**
  * Class CurlCommunication for the communication with cURL
- * @package Payrexx\CommunicationAdapter
+ * @package Uconektpay\CommunicationAdapter
  */
 class CurlCommunication extends AbstractCommunication
 {
@@ -39,7 +38,7 @@ class CurlCommunication extends AbstractCommunication
             CURLOPT_URL => $apiUrl,
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_CUSTOMREQUEST => $method,
-            CURLOPT_USERAGENT => 'payrexx-php/1.0.0',
+            CURLOPT_USERAGENT => 'uconekt-php/1.0.0',
             CURLOPT_SSL_VERIFYPEER => true,
             CURLOPT_CAINFO => dirname(__DIR__) . '/certs/ca.pem',
         );

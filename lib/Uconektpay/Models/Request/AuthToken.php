@@ -1,17 +1,16 @@
 <?php
 /**
  * The AuthToken request model
- * @author    Ueli Kramer <ueli.kramer@comvation.com>
- * @copyright 2014 Payrexx AG
+ * @copyright 2020 Uconekt AG
  * @since     v1.0
  */
-namespace Payrexx\Models\Request;
+namespace Uconektpay\Models\Request;
 
 /**
  * Class AuthToken
- * @package Payrexx\Models\Request
+ * @package Uconektpay\Models\Request
  */
-class AuthToken extends \Payrexx\Models\Base
+class AuthToken extends \Uconektpay\Models\Base
 {
     protected $userId = 0;
 
@@ -40,6 +39,6 @@ class AuthToken extends \Payrexx\Models\Base
      */
     public function getResponseModel()
     {
-        return new \Payrexx\Models\Response\AuthToken();
+        return new \Uconektpay\Models\Response\AuthToken();
     }
 }

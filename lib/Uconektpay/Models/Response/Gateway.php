@@ -1,15 +1,14 @@
 <?php
 
-namespace Payrexx\Models\Response;
+namespace Uconektpay\Models\Response;
 
 /**
  * Gateway response class
  *
- * @copyright   Payrexx AG
- * @author      Payrexx Development Team <info@payrexx.com>
- * @package     \Payrexx\Models\Response
+ * @copyright   Uconekt AG
+ * @package     \Uconektpay\Models\Response
  */
-class Gateway extends \Payrexx\Models\Request\Gateway
+class Gateway extends \Uconektpay\Models\Request\Gateway
 {
     /** @var string */
     protected $hash;

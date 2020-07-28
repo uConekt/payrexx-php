@@ -1,18 +1,17 @@
 <?php
 /**
  * The invoice response model
- * @author    Ueli Kramer <ueli.kramer@comvation.com>
- * @copyright 2014 Payrexx AG
+ * @copyright 2020 Uconekt AG
  * @since     v1.0
  */
 
-namespace Payrexx\Models\Response;
+namespace Uconektpay\Models\Response;
 
 /**
  * Class Invoice
- * @package Payrexx\Models\Response
+ * @package Uconektpay\Models\Response
  */
-class Invoice extends \Payrexx\Models\Request\Invoice
+class Invoice extends \Uconektpay\Models\Request\Invoice
 {
     /** @var string $hash */
     protected $hash = '';

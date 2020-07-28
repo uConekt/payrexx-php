@@ -1,16 +1,15 @@
 <?php
 
-namespace Payrexx\Models\Request;
+namespace Uconektpay\Models\Request;
 
 use CURLFile;
-use Payrexx\Models\Base;
+use Uconektpay\Models\Base;
 
 /**
  * Design request class
  *
- * @copyright Payrexx AG
- * @author    Payrexx Development Team <info@payrexx.com>
- * @package   \Payrexx\Models\Request
+ * @copyright Uconekt AG
+ * @package   \Uconektpay\Models\Request
  */
 class Design extends Base
 {
@@ -97,7 +96,7 @@ class Design extends Base
      */
     public function getResponseModel()
     {
-        return new \Payrexx\Models\Response\Design();
+        return new \Uconektpay\Models\Response\Design();
     }
 
     /**

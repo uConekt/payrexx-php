@@ -1,17 +1,16 @@
 <?php
 /**
  * The subscription response model
- * @author    Ueli Kramer <ueli.kramer@comvation.com>
- * @copyright 2014 Payrexx AG
+ * @copyright 2020 Uconekt AG
  * @since     v1.0
  */
-namespace Payrexx\Models\Response;
+namespace Uconektpay\Models\Response;
 
 /**
  * Class Subscription
- * @package Payrexx\Models\Response
+ * @package Uconektpay\Models\Response
  */
-class Subscription extends \Payrexx\Models\Request\Subscription
+class Subscription extends \Uconektpay\Models\Request\Subscription
 {
     protected $status = '';
     protected $pspSubscriptionId = '';

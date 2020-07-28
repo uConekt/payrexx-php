@@ -1,22 +1,22 @@
 {
-    "name": "payrexx/payrexx",
+    "name": "uconektpay/uconektpay",
     "type": "library",
-    "description": "Payrexx PHPLib",
+    "description": "Uconektpay PHPLib",
     "keywords": [
         "payment",
         "gateway"
     ],
     "license": "MIT",
-    "homepage": "https://www.payrexx.com",
+    "homepage": "https://www.uconekt-pay.com",
     "authors": [
         {
-            "name": "Payrexx AG",
-            "homepage": "https://www.payrexx.com"
+            "name": "uConekt AG",
+            "homepage": "https://www.uconekt-pay.com"
         }
     ],
     "autoload": {
         "psr-0": {
-            "Payrexx": "lib/"
+            "Uconektpay": "lib/"
         }
     },
     "require": {

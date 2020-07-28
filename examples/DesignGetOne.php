@@ -1,8 +1,8 @@
 <?php
 
-use Payrexx\Models\Request\Design;
-use Payrexx\Payrexx;
-use Payrexx\PayrexxException;
+use Uconektpay\Models\Request\Design;
+use Uconektpay\Uconektpay;
+use Uconektpay\UconektpayException;
 
 spl_autoload_register(function ($class) {
     $root = dirname(__DIR__);
@@ -12,22 +12,22 @@ spl_autoload_register(function ($class) {
     }
 });
 
-// $instanceName is a part of the url where you access your payrexx installation.
-// https://{$instanceName}.payrexx.com
+// $instanceName is a part of the url where you access your uconektpay installation.
+// https://{$instanceName}.uconekt-pay.com
 $instanceName = 'YOUR_INSTANCE_NAME';
 
-// $secret is the payrexx secret for the communication between the applications
-// if you think someone got your secret, just regenerate it in the payrexx administration
+// $secret is the uconektpay secret for the communication between the applications
+// if you think someone got your secret, just regenerate it in the uconektpay administration
 $secret = 'YOUR_SECRET';
 
-$payrexx = new Payrexx($instanceName, $secret);
+$uconektpay = new Uconektpay($instanceName, $secret);
 
 $design = new Design();
 $design->setId(1);
 
 try {
-    $response = $payrexx->getOne($design);
+    $response = $uconektpay->getOne($design);
     var_dump($response);
-} catch (PayrexxException $e) {
+} catch (UconektpayException $e) {
     print $e->getMessage();
 }

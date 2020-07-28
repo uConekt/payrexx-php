@@ -3,17 +3,16 @@
 /**
  * Transaction response model
  *
- * @copyright   Payrexx AG
- * @author      Payrexx Development Team <info@payrexx.com>
+ * @copyright   Uconekt AG
  */
-namespace Payrexx\Models\Response;
+namespace Uconektpay\Models\Response;
 
 /**
  * Transaction class
  *
- * @package Payrexx\Models\Response
+ * @package Uconektpay\Models\Response
  */
-class Transaction extends \Payrexx\Models\Request\Transaction
+class Transaction extends \Uconektpay\Models\Request\Transaction
 {
 
     private $uuid;

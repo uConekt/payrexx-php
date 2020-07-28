@@ -8,17 +8,17 @@ spl_autoload_register(function($class) {
     }
 });
 
-// $instanceName is a part of the url where you access your payrexx installation.
-// https://{$instanceName}.payrexx.com
+// $instanceName is a part of the url where you access your uconektpay installation.
+// https://{$instanceName}.uconekt-pay.com
 $instanceName = 'YOUR_INSTANCE_NAME';
 
-// $secret is the payrexx secret for the communication between the applications
-// if you think someone got your secret, just regenerate it in the payrexx administration
+// $secret is the uconektpay secret for the communication between the applications
+// if you think someone got your secret, just regenerate it in the uconektpay administration
 $secret = 'YOUR_SECRET';
 
-$payrexx = new \Payrexx\Payrexx($instanceName, $secret);
+$uconektpay = new \Uconektpay\Uconektpay($instanceName, $secret);
 
-$page = new \Payrexx\Models\Request\Page();
+$page = new \Uconektpay\Models\Request\Page();
 $page->setTitle('Form title');
 $page->setDescription('Form description');
 $page->setPsp(1);
@@ -30,8 +30,8 @@ $page->setPreAuthorization(false);
 $page->setReservation(false);
 
 try {
-    $response = $payrexx->create($page);
+    $response = $uconektpay->create($page);
     var_dump($response);
-} catch (\Payrexx\PayrexxException $e) {
+} catch (\Uconektpay\UconektpayException $e) {
     print $e->getMessage();
 }
